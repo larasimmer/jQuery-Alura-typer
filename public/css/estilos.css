@@ -6,7 +6,6 @@
 .campo-digitacao {
     font-size: 20px;
     height: 130px;
-    border: 3px solid black;
 }
 
 .campo-desabilitado {
@@ -17,10 +16,14 @@
     vertical-align: middle;
 }
 
-.digitacaoCorreta {
-    border: 3px solid green;
+.borda-neutra {
+    border: 2px solid black;
 }
 
-.digitacaoErrada {
-    border: 3px solid red;
+.digitacao-correta {
+    border: 6px solid green;
+}
+
+.digitacao-errada {
+    border: 6px solid red;
 }

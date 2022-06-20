@@ -13,6 +13,7 @@
     iniciaContadores();
     iniciaCronometro();
     reiniciaJogo();
+    comparaFrases();
 }); 
 
     //DECLARANDO FUNÇÕES
@@ -51,12 +52,24 @@
             $("#segundos").text(tempoInicial);
             iniciaCronometro();
             campoDeDigitacao.toggleClass("campo-desabilitado");
+            campoDeDigitacao.removeClass("digitacao-correta");
+            campoDeDigitacao.removeClass("digitacao-errada");
         });
     }
 
-    //function comparaFrases() {
-        //campoDeDigitacao,on("input", function() {
+    function comparaFrases() {
+        campoDeDigitacao.on("input", function() {
+            let digitado = campoDeDigitacao.val();
+            let comparavel = frase.substr(0, digitado.length);
 
-        //})
-    //}
+            if (digitado == comparavel) {
+                campoDeDigitacao.addClass("digitacao-correta");
+                campoDeDigitacao.removeClass("digitacao-errada");
+
+            } else {
+                campoDeDigitacao.addClass("digitacao-errada");
+                campoDeDigitacao.removeClass("digitacao-correta");
+            }
+        })
+    }
 
