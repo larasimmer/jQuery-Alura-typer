@@ -38,6 +38,7 @@
                     clearInterval(cronometroId);
                     botaoReiniciar.attr("disabled", false);
                     campoDeDigitacao.toggleClass("campo-desabilitado");
+                    inserePlacar();
                 }
             },1000);
         });
@@ -72,4 +73,6 @@
             }
         })
     }
+
+    
 
