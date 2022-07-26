@@ -1,3 +1,7 @@
+body {
+    overflow: scroll;
+}
+
 .frase {
     font-size: 20px;
     text-align: left;
@@ -26,4 +30,8 @@
 
 .digitacao-errada {
     border: 6px solid red;
+}
+
+.placar {
+    display: none;
 }

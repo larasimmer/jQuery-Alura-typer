@@ -3,9 +3,10 @@
     let frase = $(".frase").text();
     let quantidadeDePalavras = frase.split(" ").length;
     let tamanhoDaFrase = $("#palavras").text(quantidadeDePalavras);
-    let campoDeDigitacao = $(".campo-digitacao");
+    const campoDeDigitacao = $(".campo-digitacao");
     let tempoInicial = $("#segundos").text();
-    let botaoReiniciar = $("#botao-reiniciar");
+    const botaoReiniciar = $("#botao-reiniciar");
+
 
     //CHAMANDO FUNÇÕES
 
@@ -14,6 +15,7 @@
     iniciaCronometro();
     reiniciaJogo();
     comparaFrases();
+
 }); 
 
     //DECLARANDO FUNÇÕES
@@ -71,7 +73,7 @@
                 campoDeDigitacao.addClass("digitacao-errada");
                 campoDeDigitacao.removeClass("digitacao-correta");
             }
-        })
+        });
     }
 
     

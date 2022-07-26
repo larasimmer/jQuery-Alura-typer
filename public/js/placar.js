@@ -1,3 +1,12 @@
+//VARIÁVEIS
+
+const botaoPlacar = $("#botao-placar");
+const placar = $(".placar");
+
+//CHAMANDO FUNÇÕES
+
+mostraPlacar();
+
 //DECLARANDO FUNÇÕES
 
 function inserePlacar() {
@@ -9,6 +18,8 @@ function inserePlacar() {
     linhaTabela.find(".botao-remover").click(removeLinha);
     
     corpoTabela.prepend(linhaTabela);
+    placar.slideDown(500);
+    scrollPlacar();
 }
 
 function novaLinha(usuario, palavras) {
@@ -30,5 +41,23 @@ function novaLinha(usuario, palavras) {
 
 function removeLinha(event) {
     event.preventDefault();
-    $(this).parent().parent().remove();
+    let linha = $(this).parent().parent();
+    linha.fadeOut(1000);
+
+    setTimeout(function() {
+        linha.remove();
+    }, 1000);
+}
+
+function mostraPlacar() {
+    botaoPlacar.on("click", function() {
+        placar.stop().slideToggle(600);
+    });
+}
+
+function scrollPlacar() {
+    let posicaoPlacar = placar.offset().top;
+    $("html, body").animate({
+        scrollTop: posicaoPlacar
+    },1000);
 }
