@@ -1,8 +1,5 @@
     //VARIÁVEIS
 
-    let frase = $(".frase").text();
-    let quantidadeDePalavras = frase.split(" ").length;
-    let tamanhoDaFrase = $("#palavras").text(quantidadeDePalavras);
     const campoDeDigitacao = $(".campo-digitacao");
     let tempoInicial = $("#segundos").text();
     const botaoReiniciar = $("#botao-reiniciar");
@@ -11,6 +8,7 @@
     //CHAMANDO FUNÇÕES
 
     $(document).ready(function() {
+    totalDePalavras();
     iniciaContadores();
     iniciaCronometro();
     reiniciaJogo();
@@ -20,6 +18,12 @@
 
     //DECLARANDO FUNÇÕES
 
+    function totalDePalavras() {
+        let frase = $(".frase").text();
+        let quantidadeDePalavras = frase.split(" ").length;
+        let tamanhoDaFrase = $("#palavras").text(quantidadeDePalavras);
+    }
+    
     function iniciaContadores() {
         campoDeDigitacao.on("input", function() {
             let contadorDeCaracteres = $("#contador-caracteres").text(campoDeDigitacao.val().split("").length);
@@ -28,8 +32,8 @@
     }
 
     function iniciaCronometro() {
-        let tempoRestante = $("#segundos").text();
         campoDeDigitacao.one("focus", function() {
+            let tempoRestante = $("#segundos").text();
             botaoReiniciar.attr("disabled", true);
             cronometroId = setInterval(function() {
                 tempoRestante--;
@@ -62,6 +66,7 @@
 
     function comparaFrases() {
         campoDeDigitacao.on("input", function() {
+            let frase = $(".frase").text();
             let digitado = campoDeDigitacao.val();
             let comparavel = frase.substr(0, digitado.length);
 
@@ -74,6 +79,11 @@
                 campoDeDigitacao.removeClass("digitacao-correta");
             }
         });
+    }
+
+    function atualizaTempoInicial(tempo) {
+        tempoInicial = tempo;
+        $("#segundos").text(tempo);
     }
 
     
